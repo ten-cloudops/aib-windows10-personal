@@ -59,7 +59,7 @@ Write-Host '*** WVD AIB CUSTOMIZER PHASE *** CONFIG *** PrintNightmare remediati
 reg add "HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows NT\Printers\PointAndPrint" /v RestrictDriverInstallationToAdministrators /t REG_DWORD /d 1 /f
 
 Write-Host '*** WVD AIB CUSTOMIZER PHASE *** INSTALL *** Configure M365 Enterprise ***'
-Start-Process -FilePath c:\temp\M365\setup.exe -Args '/configure c:\temp\M365\TEN_Azure_VD.xml'
+Start-Process -FilePath c:\temp\M365\setup.exe -Args '/configure c:\temp\M365\TEN_Azure_VD_personal.xml'
 Start-Sleep -Seconds 900
 
 Write-Host '*** WVD AIB CUSTOMIZER PHASE *** INSTALL *** Install AIP Client ***'
