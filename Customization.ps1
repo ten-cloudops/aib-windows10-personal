@@ -102,17 +102,6 @@ Write-Host '*** WVD AIB CUSTOMIZER PHASE *** INSTALL *** Install Adobe DC ***'
 Start-Process -FilePath C:\temp\Adobe\AcroRdrDC2100720091_en_US.exe -Args '/sAll /rs /rps /msi /norestart /quiet EULA_ACCEPT=YES' -WorkingDirectory 'C:\temp\Adobe' -Wait
 Start-Sleep -Seconds 240
 
-Write-Host '*** WVD AIB CUSTOMIZER PHASE *** INSTALL *** Install Adobe DC Standard ***'
-Start-Process -FilePath C:\temp\Adobe\AdobeAcrobatDC\Build\setup.exe -Args '--silent' -WindowStyle Hidden
-Start-Sleep -Seconds 320
-# Install AIP Plugin (Azure Information Protection)
-Invoke-Expression -Command 'msiexec /i c:\temp\Adobe\AdobeAcrobatDC\AIPPlugin2100120135_Acr_DC.msi /qn'
-Start-Sleep -Seconds 90
-# Remove Shortcuts
-Remove-Item "C:\Users\Public\Desktop\Adobe Acrobat DC.lnk"
-Remove-Item "C:\Users\Public\Desktop\Adobe Creative Cloud.lnk"
-Start-Sleep -Seconds 45
-
 Write-Host '*** WVD AIB CUSTOMIZER PHASE *** INSTALL *** Install ZOOM VDI 5.8.0 ***'
 Invoke-Expression -Command 'msiexec /i c:\temp\General\ZoomInstallerVDI.msi /quiet /qn /norestart /log install.log ZNoDesktopShortCut="true"'
 Start-Sleep -Seconds 45
